@@ -7,44 +7,45 @@ import { Link } from 'react-router-dom';
 const Home: React.FC = () => {
   return (
     <div className="overflow-x-hidden">
-      {/* Hero Section - Fix Mobile Layout */}
-      <section className="relative min-h-screen md:min-h-[850px] flex flex-col md:flex-row items-center md:items-center justify-start md:justify-center overflow-hidden">
-        {/* Background Image Container */}
+      {/* Hero Section - Fix Mobile Layout & Overlap */}
+      <section className="relative min-h-[100dvh] md:min-h-[850px] flex flex-col justify-start md:justify-center overflow-hidden">
+        {/* Background Image */}
         <div className="absolute inset-0 z-0">
           <img 
             src={HOME_IMG_1} 
             alt="Benessere MG Studio Estetica" 
-            className="w-full h-full object-cover object-[70%_center] md:object-center"
+            className="w-full h-full object-cover object-[75%_center] md:object-center"
           />
-          {/* Enhanced Overlay for Mobile Legibility */}
-          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-white/40 md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent"></div>
+          {/* Solid White Top for Header Blending + Gradient */}
+          <div className="absolute inset-0 bg-white/40 md:bg-transparent"></div>
+          <div className="absolute inset-0 bg-gradient-to-b from-white via-white/80 to-transparent md:bg-gradient-to-r md:from-white/95 md:via-white/70 md:to-transparent"></div>
         </div>
         
-        {/* Content Container */}
-        <div className="container mx-auto px-6 relative z-10 pt-36 pb-12 md:pt-48 md:pb-24">
+        {/* Content Container - Use explicit top padding to avoid header overlap */}
+        <div className="container mx-auto px-6 relative z-10 pt-[120px] pb-12 md:pt-0">
           <div className="max-w-2xl space-y-6 md:space-y-10 text-center md:text-left">
-            <div className="space-y-4">
-              <span className="inline-block text-[10px] md:text-xs font-bold tracking-[0.4em] text-secondary uppercase bg-secondary/10 px-4 py-1.5 rounded-full border border-secondary/20 shadow-sm">
-                Foggia • MG Studio Estetica
+            <div className="space-y-3">
+              <span className="inline-block text-[9px] md:text-xs font-bold tracking-[0.4em] text-secondary uppercase bg-white/60 backdrop-blur-sm px-4 py-1.5 rounded-full border border-secondary/20 shadow-sm">
+                MG STUDIO ESTETICA
               </span>
-              <h1 className="text-4xl xs:text-5xl sm:text-6xl md:text-8xl font-serif text-primary leading-[1.1] md:leading-tight">
+              <h1 className="text-[2.2rem] xs:text-5xl sm:text-6xl md:text-8xl font-serif text-primary leading-[1.15] md:leading-tight">
                 Esperienza Unica <br />
                 <span className="text-secondary italic">& Bellezza</span>
               </h1>
             </div>
             
-            <p className="text-gray-700 text-sm md:text-xl max-w-md mx-auto md:mx-0 leading-relaxed font-medium">
-              Il nostro Studio Estetico offre trattamenti innovativi in un ambiente elegante e rilassante. Prenditi cura di te stessa con MG Studio Estetica.
+            <p className="text-gray-700 text-sm md:text-xl max-w-md mx-auto md:mx-0 leading-relaxed font-medium px-2 md:px-0">
+              Il nostro Studio Estetico offre trattamenti innovativi in un ambiente elegante e rilassante. Prenditi cura di te stessa con noi.
             </p>
             
-            {/* Features: Optimized for Mobile - 2 items per row max or list with smaller icons */}
-            <div className="grid grid-cols-2 gap-y-3 gap-x-2 pt-2 text-left max-w-sm mx-auto md:mx-0">
-              {HERO_FEATURES.slice(0, 4).map((feat, idx) => (
-                <div key={idx} className="flex items-center gap-2 group">
-                  <div className="shrink-0 p-1.5 bg-white/80 rounded-full text-secondary shadow-sm">
+            {/* Features: Cleaner List for Mobile */}
+            <div className="grid grid-cols-1 xs:grid-cols-2 gap-y-3 gap-x-4 pt-4 text-left max-w-sm mx-auto md:mx-0">
+              {HERO_FEATURES.slice(0, 6).map((feat, idx) => (
+                <div key={idx} className="flex items-center gap-3 group">
+                  <div className="shrink-0 p-2 bg-white/90 rounded-full text-secondary shadow-sm">
                     {React.cloneElement(feat.icon as React.ReactElement, { size: 14 })}
                   </div>
-                  <span className="text-[9px] md:text-xs font-bold tracking-tight text-primary uppercase leading-none">{feat.text}</span>
+                  <span className="text-[10px] md:text-xs font-bold tracking-wide text-primary uppercase">{feat.text}</span>
                 </div>
               ))}
             </div>
@@ -52,7 +53,7 @@ const Home: React.FC = () => {
             <div className="pt-8 md:pt-10">
               <Link 
                 to="/servizi" 
-                className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-white px-10 md:px-14 py-4 md:py-5 rounded-full font-bold shadow-2xl hover:bg-secondary active:scale-95 transition-all uppercase tracking-[0.2em] text-[11px] md:text-xs"
+                className="w-full sm:w-auto inline-flex items-center justify-center bg-primary text-white px-10 md:px-14 py-4 md:py-5 rounded-full font-bold shadow-xl hover:bg-secondary active:scale-95 transition-all uppercase tracking-[0.2em] text-[11px] md:text-xs"
               >
                 SCOPRI IL LISTINO <ArrowRight size={16} className="ml-2" />
               </Link>
@@ -75,9 +76,6 @@ const Home: React.FC = () => {
               <Link to="/servizi" key={idx} className="group cursor-pointer block">
                 <div className="relative overflow-hidden rounded-full aspect-square mb-6 border-2 md:border-4 border-accent group-hover:border-secondary transition-all shadow-xl">
                   <img src={cat.img} alt={cat.name} className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700" />
-                  <div className="absolute inset-0 bg-primary/20 opacity-0 md:group-hover:opacity-100 transition-opacity flex items-center justify-center">
-                    <span className="text-white font-bold text-[10px] tracking-widest uppercase hidden md:inline">Dettagli</span>
-                  </div>
                 </div>
                 <h3 className="text-sm md:text-xl font-serif text-primary group-hover:text-secondary transition-colors leading-tight italic px-1 h-12 flex items-center justify-center">{cat.name}</h3>
               </Link>
@@ -142,7 +140,7 @@ const Home: React.FC = () => {
       </section>
 
       {/* Stats Section */}
-      <section className="py-20 bg-accent/30">
+      <section className="py-20 bg-accent/30 border-y border-accent/50">
         <div className="container mx-auto px-4">
            <div className="grid grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-4 text-center">
                 {STATS.map((stat, idx) => (

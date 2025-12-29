@@ -2,6 +2,7 @@
 import React from 'react';
 import { X, Minus, Plus, Trash2, ShoppingBag } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { CONTACT_INFO } from '../constants';
 
 const CartDrawer: React.FC = () => {
   const { cart, removeFromCart, updateQuantity, totalPrice, isCartOpen, setIsCartOpen } = useCart();
@@ -9,7 +10,7 @@ const CartDrawer: React.FC = () => {
   if (!isCartOpen) return null;
 
   const handleWhatsAppBooking = () => {
-    const phoneNumber = '393334445556';
+    const phoneNumber = CONTACT_INFO.phoneRaw;
     let message = 'Ciao MG Studio Estetica! 👋\nVorrei prenotare i seguenti trattamenti:\n\n';
     
     cart.forEach((item) => {

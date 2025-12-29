@@ -1,8 +1,8 @@
 
 import React from 'react';
 import { Link } from 'react-router-dom';
-import { Facebook, Instagram, Linkedin, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
-import { LOGO_URL } from '../constants';
+import { Facebook, Instagram, MapPin, Phone, Mail, ArrowUp } from 'lucide-react';
+import { LOGO_URL, CONTACT_INFO } from '../constants';
 
 const Footer: React.FC = () => {
   const scrollToTop = () => {
@@ -14,7 +14,6 @@ const Footer: React.FC = () => {
       <div className="container mx-auto px-4 grid grid-cols-1 md:grid-cols-3 gap-12 mb-12">
         {/* Brand Info */}
         <div className="flex flex-col space-y-6">
-          {/* Logo in a white box */}
           <div className="bg-white p-4 rounded-xl inline-block self-start shadow-inner">
             <img src={LOGO_URL} alt="MG Studio Estetica" className="h-16 w-auto object-contain" />
           </div>
@@ -22,9 +21,8 @@ const Footer: React.FC = () => {
             MG Studio Estetica è il tuo rifugio di bellezza dove ogni trattamento è studiato per rigenerare corpo e mente. La nostra missione è esaltare la tua bellezza naturale.
           </p>
           <div className="flex space-x-4">
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-secondary hover:text-white transition-all"><Instagram size={18} /></a>
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-secondary hover:text-white transition-all"><Facebook size={18} /></a>
-            <a href="#" className="p-2 bg-gray-800 rounded-full hover:bg-secondary hover:text-white transition-all"><Linkedin size={18} /></a>
+            <a href={CONTACT_INFO.instagram} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-secondary hover:text-white transition-all"><Instagram size={18} /></a>
+            <a href={CONTACT_INFO.facebook} target="_blank" rel="noopener noreferrer" className="p-2 bg-gray-800 rounded-full hover:bg-secondary hover:text-white transition-all"><Facebook size={18} /></a>
           </div>
         </div>
 
@@ -46,15 +44,15 @@ const Footer: React.FC = () => {
           <ul className="space-y-4 text-sm">
             <li className="flex items-start gap-3">
               <MapPin size={18} className="text-secondary shrink-0" />
-              <span>Via della Bellezza, 12<br />00100 Roma (RM)</span>
+              <span>{CONTACT_INFO.address}</span>
             </li>
             <li className="flex items-center gap-3">
               <Phone size={18} className="text-secondary shrink-0" />
-              <span>+39 0123 456789</span>
+              <span>{CONTACT_INFO.phone}</span>
             </li>
             <li className="flex items-center gap-3">
               <Mail size={18} className="text-secondary shrink-0" />
-              <span>info@mgstudioestetica.it</span>
+              <span>{CONTACT_INFO.email}</span>
             </li>
           </ul>
         </div>

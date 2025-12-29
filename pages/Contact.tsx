@@ -1,6 +1,7 @@
 
 import React from 'react';
 import { Phone, Mail, MapPin, MessageCircle } from 'lucide-react';
+import { CONTACT_INFO } from '../constants';
 
 const Contact: React.FC = () => {
   return (
@@ -29,7 +30,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Indirizzo</h4>
-                    <p className="text-gray-600">Via della Bellezza, 12, 00100 Roma (RM)</p>
+                    <p className="text-gray-600">{CONTACT_INFO.address}</p>
                   </div>
                 </div>
 
@@ -39,8 +40,8 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Telefono</h4>
-                    <p className="text-gray-600">+39 0123 456789</p>
-                    <p className="text-gray-600 font-medium text-secondary">+39 333 4445556 (WhatsApp)</p>
+                    <p className="text-gray-600">{CONTACT_INFO.phone}</p>
+                    <p className="text-gray-600 font-medium text-secondary">{CONTACT_INFO.phone} (WhatsApp)</p>
                   </div>
                 </div>
 
@@ -50,7 +51,7 @@ const Contact: React.FC = () => {
                   </div>
                   <div>
                     <h4 className="font-bold text-primary mb-1">Email</h4>
-                    <p className="text-gray-600">info@mgstudioestetica.it</p>
+                    <p className="text-gray-600">{CONTACT_INFO.email}</p>
                   </div>
                 </div>
               </div>
@@ -66,16 +67,19 @@ const Contact: React.FC = () => {
                 </p>
                 <div className="space-y-4">
                   <a 
-                    href="https://wa.me/393334445556" 
+                    href={`https://wa.me/${CONTACT_INFO.phoneRaw}`} 
                     target="_blank" 
                     rel="noopener noreferrer"
                     className="flex items-center justify-center gap-2 w-full bg-[#25D366] text-white py-4 rounded-full font-bold shadow-md hover:bg-[#128C7E] transition-all"
                   >
                     PRENOTA SU WHATSAPP
                   </a>
-                  <button className="w-full border-2 border-primary text-primary py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all">
+                  <a 
+                    href={`tel:${CONTACT_INFO.phoneRaw}`}
+                    className="flex items-center justify-center w-full border-2 border-primary text-primary py-4 rounded-full font-bold hover:bg-primary hover:text-white transition-all"
+                  >
                     CHIAMACI ORA
-                  </button>
+                  </a>
                 </div>
             </div>
           </div>

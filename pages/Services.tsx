@@ -2,6 +2,7 @@
 import React from 'react';
 import { ArrowRight, CheckCircle2, Zap, Sparkles, User, UserCheck, PlusCircle } from 'lucide-react';
 import { useCart } from '../context/CartContext';
+import { CONTACT_INFO } from '../constants';
 
 const Services: React.FC = () => {
   const { addToCart } = useCart();
@@ -304,10 +305,10 @@ const Services: React.FC = () => {
       <section className="py-24 text-center">
         <div className="container mx-auto px-4">
              <h2 className="text-3xl font-serif text-primary mb-6 italic">Prenota il tuo momento di Relax</h2>
-             <button className="bg-primary text-white px-12 py-5 rounded-full font-bold shadow-2xl hover:bg-secondary transition-all flex items-center justify-center gap-3 mx-auto uppercase tracking-widest text-sm">
+             <a href={`https://wa.me/${CONTACT_INFO.phoneRaw}`} className="inline-flex bg-primary text-white px-12 py-5 rounded-full font-bold shadow-2xl hover:bg-secondary transition-all items-center justify-center gap-3 mx-auto uppercase tracking-widest text-sm">
                 SCRIVICI SU WHATSAPP <ArrowRight size={20} />
-             </button>
-             <p className="mt-8 text-gray-400 text-sm">Via Marinaccio, 54 - Foggia | Tel: +39 0123 456789</p>
+             </a>
+             <p className="mt-8 text-gray-400 text-sm">{CONTACT_INFO.address} | Tel: {CONTACT_INFO.phone}</p>
         </div>
       </section>
     </div>

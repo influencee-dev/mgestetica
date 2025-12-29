@@ -2,7 +2,7 @@
 import React, { useState } from 'react';
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X, Phone, Mail, Clock, ShoppingBag } from 'lucide-react';
-import { LOGO_URL } from '../constants';
+import { LOGO_URL, CONTACT_INFO } from '../constants';
 import { useCart } from '../context/CartContext';
 
 const Header: React.FC = () => {
@@ -24,8 +24,10 @@ const Header: React.FC = () => {
       <div className="bg-primary text-white py-2 px-4 hidden md:block text-xs">
         <div className="container mx-auto flex justify-between items-center">
           <div className="flex space-x-6">
-            <span className="flex items-center gap-1"><Phone size={14} /> +39 0123 456789</span>
-            <span className="flex items-center gap-1"><Mail size={14} /> info@mgstudioestetica.it</span>
+            <a href={`tel:${CONTACT_INFO.phoneRaw}`} className="flex items-center gap-1 hover:text-secondary transition-colors">
+              <Phone size={14} /> {CONTACT_INFO.phone}
+            </a>
+            <span className="flex items-center gap-1"><Mail size={14} /> {CONTACT_INFO.email}</span>
           </div>
           <div className="flex items-center gap-1">
             <Clock size={14} /> Lun - Sab: 09:00 - 19:30

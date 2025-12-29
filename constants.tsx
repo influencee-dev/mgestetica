@@ -21,8 +21,8 @@ export const HERO_FEATURES = [
 ];
 
 export const CATEGORIES = [
-  { name: 'Trattamenti Piedi', img: 'https://images.unsplash.com/photo-1519415510236-8559b198560e?q=80&w=400&h=400&auto=format&fit=crop' },
-  { name: 'Trattamenti Mani', img: 'https://images.unsplash.com/photo-1610992015732-2449b0c26670?q=80&w=400&h=400&auto=format&fit=crop' },
+  { name: 'Trattamenti Piedi', img: 'https://socialee.it/wp-content/uploads/2025/12/woman-making-pedicure-in-beauty-salon-2024-10-18-06-18-24-utc-scaled.webp' },
+  { name: 'Trattamenti Mani', img: 'https://socialee.it/wp-content/uploads/2025/12/peeling-or-moisturizing-procedure-2024-10-18-07-32-14-utc-scaled.webp' },
   { name: 'Trattamenti Viso', img: 'https://images.unsplash.com/photo-1570172619644-dfd03ed5d881?q=80&w=400&h=400&auto=format&fit=crop' },
   { name: 'Trattamenti Corpo', img: 'https://images.unsplash.com/photo-1544161515-4ab6ce6db874?q=80&w=400&h=400&auto=format&fit=crop' },
   { name: 'Epilazione', img: 'https://images.unsplash.com/photo-1552693673-1bf958298935?q=80&w=400&h=400&auto=format&fit=crop' },
@@ -35,26 +35,11 @@ export const STATS = [
   { label: 'Anni di Esperienza', value: '15' },
 ];
 
-export const TEAM = [
-  {
-    id: '1',
-    name: 'Marta G.',
-    role: 'Fondatrice & Master Aesthetician',
-    image: 'https://picsum.photos/300/300?random=10',
-    email: 'marta@mgstudioestetica.it'
-  },
-  {
-    id: '2',
-    name: 'Giulia R.',
-    role: 'Specialista Viso',
-    image: 'https://picsum.photos/300/300?random=11',
-    email: 'giulia@mgstudioestetica.it'
-  },
-  {
-    id: '3',
-    name: 'Elena B.',
-    role: 'Esperta Massaggi',
-    image: 'https://picsum.photos/300/300?random=12',
-    email: 'elena@mgstudioestetica.it'
-  }
-];
+export const CONTACT_INFO = {
+  phone: '+39 375 748 5705',
+  phoneRaw: '393757485705',
+  email: 'info@mgstudioestetica.it',
+  address: 'Via Marinaccio, 54, 71122 Foggia (FG)',
+  instagram: 'https://www.instagram.com/mg_studio_estetica',
+  facebook: 'https://www.facebook.com/MGStudioEstetica?locale=it_IT'
+};
